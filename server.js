@@ -22,6 +22,8 @@ const db = knex({
     }
 });
 
+app.get('/', (req,res) => {res.send('working')});
+
 app.post('/dailyupdate', (req, res) => { dailyupdate.updateData(req, res, db) });
 
 app.post('/dailygraph', (req, res) => { dailygraph.getGraphData(req, res, db) });
