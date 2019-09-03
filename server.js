@@ -11,6 +11,7 @@ const app = express(); // So we can have a server going
 app.use(bodyParser.json()); // So we can get form data
 app.use(cors()); // To connect front and back end
 
+// Our DB
 const db = knex({
     client: 'pg',
     connection: {
