@@ -14,11 +14,8 @@ app.use(cors()); // To connect front and back end
 const db = knex({
     client: 'pg',
     connection: {
-        host: '127.0.0.1',
-        port: '5433',
-        user: 'postgres',
-        password: 'FFFFFF',
-        database: 'juggling-chart'
+        connectionString: process.env.DATABASE_URL,
+        ssl: true
     }
 });
 
