@@ -1,7 +1,7 @@
 const updateData = (req, res, db) => {
     const { catches } = req.body; // Destructure catches
 
-    // Insert data into db
+    // Insert new catches and date into DB
     db('dailydata')
         .returning('*')
         .insert({
