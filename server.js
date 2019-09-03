@@ -28,6 +28,6 @@ app.post('/dailygraph', (req, res) => { dailygraph.getGraphData(req, res, db) })
 
 app.get('/averagegraph', (req, res) => { averagegraph.getGraphData(req, res, db) });
 
-app.listen(3000, () => {
-    console.log('working');
+app.listen(process.env.PORT || 3000, () => {
+    console.log('working on port', process.env.PORT);
 })
