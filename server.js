@@ -19,8 +19,6 @@ const db = knex({
     }
 });
 
-app.get('/', (req,res) => {res.send('working')});
-
 app.post('/dailyupdate', (req, res) => { dailyupdate.updateData(req, res, db) });
 
 app.post('/dailygraph', (req, res) => { dailygraph.getGraphData(req, res, db) });
@@ -28,5 +26,5 @@ app.post('/dailygraph', (req, res) => { dailygraph.getGraphData(req, res, db) })
 app.get('/averagegraph', (req, res) => { averagegraph.getGraphData(req, res, db) });
 
 app.listen(process.env.PORT || 3000, () => {
-    console.log('working on port', process.env.PORT);
+    console.log('working on', process.env.PORT);
 })
