@@ -8,7 +8,6 @@ const getGraphData = (req, res, db) => {
             res.json(data);
         })
         .catch(err => res.status(400).json('Error getting data'))
-        
 }
 
 module.exports = {
