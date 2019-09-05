@@ -24,7 +24,7 @@ app.post('/dailyupdate', (req, res) => { dailyupdate.updateData(req, res, db) })
 
 app.post('/dailygraph', (req, res) => { dailygraph.getGraphData(req, res, db) });
 
-app.get('/averagegraph', (req, res) => { averagegraph.getGraphData(req, res, db) });
+app.post('/averagegraph', (req, res) => { averagegraph.getGraphData(req, res, db) });
 
 app.listen(process.env.PORT, () => {
     console.log('working on', process.env.PORT);
