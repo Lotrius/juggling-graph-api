@@ -2,9 +2,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const knex = require('knex');
+const bcrypt = require('bcrypt-nodejs');
 const dailyupdate = require('./controllers/dailyupdate');
 const dailygraph = require('./controllers/dailygraph');
 const averagegraph = require('./controllers/averagegraph');
+const signin = require('./controllers/signin');
 
 const app = express(); // So we can have a server going
 
@@ -12,11 +14,23 @@ app.use(bodyParser.json()); // So we can get form data
 app.use(cors()); // To connect front and back end
 
 // Our DB
+// const db = knex({
+//     client: 'pg',
+//     connection: {
+//         connectionString: process.env.DATABASE_URL,
+//         ssl: true
+//     }
+// });
+
 const db = knex({
     client: 'pg',
     connection: {
-        connectionString: process.env.DATABASE_URL,
-        ssl: true
+        host: '127.0.0.1',
+        port: '5433',
+        user: 'postgres',
+        password: '6iofgN732',
+        database: 'juggling-chart'
+
     }
 });
 
@@ -26,6 +40,8 @@ app.post('/dailygraph', (req, res) => { dailygraph.getGraphData(req, res, db) })
 
 app.post('/averagegraph', (req, res) => { averagegraph.getGraphData(req, res, db) });
 
-app.listen(process.env.PORT, () => {
+app.post('/signin', (req, res) => { signin.handleSignIn(req, res, db, bcrypt) });
+
+app.listen(3000 || process.env.PORT, () => {
     console.log('working on', process.env.PORT);
 })
