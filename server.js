@@ -30,6 +30,6 @@ app.post('/averagegraph', (req, res) => { averagegraph.getGraphData(req, res, db
 
 app.post('/signin', (req, res) => { signin.handleSignIn(req, res, db, bcrypt) });
 
-app.listen(3000 || process.env.PORT, () => {
+app.listen(process.env.PORT, () => {
     console.log('working on', process.env.PORT);
 })
