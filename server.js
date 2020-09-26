@@ -15,24 +15,24 @@ app.use(bodyParser.json()); // So we can get form data
 app.use(cors()); // To connect front and back end
 
 // Our DB
-// const db = knex({
-//   client: 'pg',
-//   connection: {
-//     connectionString: process.env.DATABASE_URL,
-//     ssl: true
-//   }
-// });
-
 const db = knex({
   client: 'pg',
   connection: {
-    host: '127.0.0.1',
-    port: '5433',
-    user: 'postgres',
-    password: '6iofgN732',
-    database: 'juggling-chart'
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
   }
 });
+
+// const db = knex({
+//   client: 'pg',
+//   connection: {
+//     host: '127.0.0.1',
+//     port: '5433',
+//     user: 'postgres',
+//     password: '6iofgN732',
+//     database: 'juggling-chart'
+//   }
+// });
 
 // Insert new catches and date into DB
 app.post('/dailyupdate', (req, res) => {
