@@ -29,7 +29,7 @@ const db = knex({
     host: '127.0.0.1',
     port: '5433',
     user: 'postgres',
-    password: 'password',
+    password: '6iofgN732',
     database: 'juggling-chart'
   }
 });
