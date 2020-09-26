@@ -14,6 +14,26 @@ const app = express(); // So we can have a server going
 app.use(bodyParser.json()); // So we can get form data
 app.use(cors()); // To connect front and back end
 
+// Our DB
+const db = knex({
+  client: 'pg',
+  connection: {
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
+  }
+});
+
+// const db = knex({
+//   client: 'pg',
+//   connection: {
+//     host: '127.0.0.1',
+//     port: '5433',
+//     user: 'postgres',
+//     password: 'password',
+//     database: 'juggling-chart'
+//   }
+// });
+
 // Insert new catches and date into DB
 app.post('/dailyupdate', (req, res) => {
   dailyupdate.updateData(req, res, db);
@@ -40,5 +60,5 @@ app.delete('/delete', (req, res) => {
 });
 
 app.listen(3000 || process.env.PORT, () => {
-  console.log('Listening on port 3000!');
+  console.log(`Listening on port ${3000 || process.env.PORT}!`);
 });
