@@ -36,6 +36,11 @@ const db = knex({
 //   }
 // });
 
+// Get and validate sign in information
+app.post('/signin', (req, res) => {
+  signin.handleSignIn(req, res, db, bcrypt);
+});
+
 // Insert new catches and date into DB
 app.post('/dailyupdate', (req, res) => {
   dailyupdate.updateData(req, res, db);
@@ -49,11 +54,6 @@ app.post('/dailygraph', (req, res) => {
 // Get average catches for each day
 app.post('/averagegraph', (req, res) => {
   averagegraph.getGraphData(req, res, db);
-});
-
-// Get and validate sign in information
-app.post('/signin', (req, res) => {
-  signin.handleSignIn(req, res, db, bcrypt);
 });
 
 // Delete latest entry in database
