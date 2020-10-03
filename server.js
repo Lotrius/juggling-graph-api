@@ -14,16 +14,27 @@ const app = express(); // So we can have a server going
 app.use(cors()); // To connect front and back end
 app.use(bodyParser.json()); // So we can get form data
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
-
 // Our DB
 const db = knex({
   client: 'pg',
   connection: {
     connectionString: process.env.DATABASE_URL,
-    ssl: true
+    ssl: {
+      rejectUnauthorized: false
+    }
   }
 });
+
+// const db = knex({
+//   client: 'pg',
+//   connection: {
+//     host: '127.0.0.1',
+//     port: '5433',
+//     user: 'postgres',
+//     password: 'password',
+//     database: 'juggling-chart'
+//   }
+// });
 
 app.get('/', (req, res) => res.send('hi'));
 
