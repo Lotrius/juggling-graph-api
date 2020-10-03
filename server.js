@@ -36,7 +36,7 @@ const db = knex({
 //   }
 // });
 
-app.get('/', (req, res) => res.json('hi'));
+app.get('/', (req, res) => res.send('hi'));
 
 // Get and validate sign in information
 app.post('/signin', (req, res) => {
