@@ -11,8 +11,8 @@ const deletedata = require('./controllers/deletedata');
 
 const app = express(); // So we can have a server going
 
-app.use(bodyParser.json()); // So we can get form data
 app.use(cors()); // To connect front and back end
+app.use(bodyParser.json()); // So we can get form data
 
 // Our DB
 const db = knex({
@@ -31,7 +31,7 @@ const db = knex({
 //     host: '127.0.0.1',
 //     port: '5433',
 //     user: 'postgres',
-//     password: '6iofgN732',
+//     password: 'password',
 //     database: 'juggling-chart'
 //   }
 // });

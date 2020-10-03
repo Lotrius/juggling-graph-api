@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "serve -s build",
+    "dev": "nodemon server.js"
   },
   "license": "MIT",
   "dependencies": {
@@ -13,7 +14,8 @@
     "express": "^4.17.1",
     "knex": "^0.21.5",
     "nodemon": "^2.0.4",
-    "pg": "^8.3.3"
+    "pg": "^8.3.3",
+    "serve": "^11.3.2"
   },
   "devDependencies": {}
 }
