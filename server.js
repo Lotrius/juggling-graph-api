@@ -61,6 +61,6 @@ app.delete('/delete', (req, res) => {
   deletedata.handledelete(req, res, db);
 });
 
-app.listen(3000 || process.env.PORT, () => {
-  console.log(`Listening on port ${3000 || process.env.PORT}!`);
+app.listen(process.env.PORT, () => {
+  console.log(`Listening on port ${process.env.PORT}!`);
 });
